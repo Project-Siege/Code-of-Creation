@@ -1,25 +1,23 @@
 extends NodeState
 
-@export var player: CharacterBody2D
+@export var player: Player
 @export var animated_sprite_2d: AnimatedSprite2D
 
-var direction: Vector2
 
 func _on_process(_delta : float) -> void:
 	pass
 
 
 func _on_physics_process(_delta : float) -> void:
-	direction = GameInputEvents.movement_input()
 		
-	if direction == Vector2.UP:
+	if player.player_direction == Vector2.UP:
 		animated_sprite_2d.play("idle_up")
-	elif direction == Vector2.DOWN:
+	elif player.player_direction == Vector2.DOWN:
 		animated_sprite_2d.play("idle_down")
-	elif direction == Vector2.LEFT:
+	elif player.player_direction == Vector2.LEFT:
 		animated_sprite_2d.play("idle_side")
 		animated_sprite_2d.flip_h = true
-	elif direction == Vector2.RIGHT:
+	elif player.player_direction == Vector2.RIGHT:
 		animated_sprite_2d.play("idle_side")
 		animated_sprite_2d.flip_h = false
 	else:
@@ -27,9 +25,9 @@ func _on_physics_process(_delta : float) -> void:
 
 
 func _on_next_transitions() -> void:
-	GameInputEvents.is_movement_input()
+	GameInputEvents.movement_input()
 	
-	if GameInputEvents.is_movement_input():
+	if GameInputEvents.movement_input():
 		transition.emit("Walk")
 
 
@@ -38,4 +36,4 @@ func _on_enter() -> void:
 
 
 func _on_exit() -> void:
-	pass
+	animated_sprite_2d.stop()
