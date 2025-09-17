@@ -5,6 +5,8 @@ extends NodeState
 @export var speed: int = 50
 
 
+
+
 func _on_process(_delta : float) -> void:
 	pass
 

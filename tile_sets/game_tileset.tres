@@ -242,6 +242,10 @@ texture = ExtResource("3_odgn4")
 3:0/0 = 0
 6:0/size_in_atlas = Vector2i(3, 6)
 6:0/0 = 0
+0:6/size_in_atlas = Vector2i(3, 6)
+0:6/0 = 0
+3:6/size_in_atlas = Vector2i(3, 6)
+3:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sf7es"]
 texture = ExtResource("4_pdgio")
@@ -264,6 +268,8 @@ texture = ExtResource("4_pdgio")
 10:1/0 = 0
 2:4/size_in_atlas = Vector2i(2, 4)
 2:4/0 = 0
+6:4/size_in_atlas = Vector2i(2, 4)
+6:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4e1uv"]
 texture = ExtResource("2_2pdka")
