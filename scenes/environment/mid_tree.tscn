@@ -1,26 +1,35 @@
-[gd_scene load_steps=9 format=3 uid="uid://hqtoi23jx7mt"]
+[gd_scene load_steps=13 format=3 uid="uid://hqtoi23jx7mt"]
 
+[ext_resource type="Script" uid="uid://c81sgaj2ef4a4" path="res://scenes/environment/mid_tree.gd" id="1_22kbv"]
 [ext_resource type="Shader" uid="uid://dlm2xnrq6hsy4" path="res://assets/shaders/colorize.gdshader" id="1_a0w5d"]
 [ext_resource type="Texture2D" uid="uid://cuemidgkntwwd" path="res://assets/environment/trees.png" id="1_mb8mn"]
 [ext_resource type="Texture2D" uid="uid://bld06pic5um0r" path="res://assets/environment/tree_leaves.png" id="2_a0w5d"]
+[ext_resource type="PackedScene" uid="uid://bjdp4vjlwkusq" path="res://scenes/components/hurt_component.tscn" id="4_b4q1t"]
+[ext_resource type="PackedScene" uid="uid://c23ryy5kpj7j6" path="res://scenes/components/damage_component.tscn" id="5_22kbv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xtxxg"]
+resource_local_to_scene = true
 shader = ExtResource("1_a0w5d")
 shader_parameter/grayscaleImage = ExtResource("1_mb8mn")
 shader_parameter/lowColor = Color(0, 0, 0, 1)
 shader_parameter/midColor = Color(1, 0.7305, 0.51, 1)
 shader_parameter/highColor = Color(0.83, 0.61586, 0.47309998, 1)
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xtxxg"]
 atlas = ExtResource("1_mb8mn")
 region = Rect2(0, 64, 48, 96)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b4q1t"]
+resource_local_to_scene = true
 shader = ExtResource("1_a0w5d")
 shader_parameter/grayscaleImage = ExtResource("2_a0w5d")
 shader_parameter/lowColor = Color(0, 0, 0, 1)
 shader_parameter/midColor = Color(0.89, 0.542455, 0.2581, 1)
 shader_parameter/highColor = Color(0.59, 0.28497002, 0.0354, 1)
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b4q1t"]
 atlas = ExtResource("2_a0w5d")
@@ -30,7 +39,11 @@ region = Rect2(0, 64, 48, 72)
 radius = 5.0
 height = 10.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrbq3"]
+size = Vector2(20, 22)
+
 [node name="MidTree" type="Node2D"]
+script = ExtResource("1_22kbv")
 
 [node name="TreeTrunk" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_xtxxg")
@@ -47,3 +60,14 @@ texture = SubResource("AtlasTexture_b4q1t")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, -16)
 shape = SubResource("CapsuleShape2D_a0w5d")
+
+[node name="HurtComponent" parent="." instance=ExtResource("4_b4q1t")]
+tool = 1
+
+[node name="Hurt_Component_CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_wrbq3")
+debug_color = Color(0, 0.6503175, 0.11705484, 0.41960785)
+
+[node name="DamageComponent" parent="." instance=ExtResource("5_22kbv")]
+max_damage = 4

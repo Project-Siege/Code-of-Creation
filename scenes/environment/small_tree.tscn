@@ -13,11 +13,14 @@ atlas = ExtResource("1_3fcko")
 region = Rect2(32, 0, 32, 64)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ke6tb"]
+resource_local_to_scene = true
 shader = ExtResource("1_863nt")
 shader_parameter/grayscaleImage = ExtResource("2_863nt")
 shader_parameter/lowColor = Color(0, 0, 0, 1)
 shader_parameter/midColor = Color(0.95, 0.6441, 0.2945, 1)
 shader_parameter/highColor = Color(0.94, 0.54175335, 0.1692, 1)
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ke6tb"]
 atlas = ExtResource("2_863nt")
@@ -50,8 +53,9 @@ position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_ke6tb")
 
 [node name="HurtComponent" parent="." instance=ExtResource("4_dktux")]
+tool = 1
 
-[node name="HurtComponentCollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+[node name="Hurt_Component_CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
 position = Vector2(0, -12.5)
 shape = SubResource("RectangleShape2D_dktux")
 debug_color = Color(0, 0.63671887, 0.40532205, 0.41960785)
