@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://hqtoi23jx7mt"]
+
+[ext_resource type="Shader" uid="uid://dlm2xnrq6hsy4" path="res://assets/shaders/colorize.gdshader" id="1_a0w5d"]
+[ext_resource type="Texture2D" uid="uid://cuemidgkntwwd" path="res://assets/environment/trees.png" id="1_mb8mn"]
+[ext_resource type="Texture2D" uid="uid://bld06pic5um0r" path="res://assets/environment/tree_leaves.png" id="2_a0w5d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xtxxg"]
+shader = ExtResource("1_a0w5d")
+shader_parameter/grayscaleImage = ExtResource("1_mb8mn")
+shader_parameter/lowColor = Color(0, 0, 0, 1)
+shader_parameter/midColor = Color(1, 0.7305, 0.51, 1)
+shader_parameter/highColor = Color(0.83, 0.61586, 0.47309998, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtxxg"]
+atlas = ExtResource("1_mb8mn")
+region = Rect2(0, 64, 48, 96)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b4q1t"]
+shader = ExtResource("1_a0w5d")
+shader_parameter/grayscaleImage = ExtResource("2_a0w5d")
+shader_parameter/lowColor = Color(0, 0, 0, 1)
+shader_parameter/midColor = Color(0.89, 0.542455, 0.2581, 1)
+shader_parameter/highColor = Color(0.59, 0.28497002, 0.0354, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4q1t"]
+atlas = ExtResource("2_a0w5d")
+region = Rect2(0, 64, 48, 72)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a0w5d"]
+radius = 5.0
+height = 10.0
+
+[node name="MidTree" type="Node2D"]
+
+[node name="TreeTrunk" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_xtxxg")
+position = Vector2(0, -48)
+texture = SubResource("AtlasTexture_xtxxg")
+
+[node name="TreeLeaves" type="Sprite2D" parent="TreeTrunk"]
+material = SubResource("ShaderMaterial_b4q1t")
+position = Vector2(0, -12)
+texture = SubResource("AtlasTexture_b4q1t")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -16)
+shape = SubResource("CapsuleShape2D_a0w5d")
