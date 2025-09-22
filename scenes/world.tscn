@@ -6,7 +6,7 @@
 [node name="World" type="Node2D"]
 
 [node name="TestSceneTilemap" parent="." instance=ExtResource("1_4wyf3")]
-position = Vector2(0, -11)
+position = Vector2(0, -175)
 
 [node name="Player" parent="." instance=ExtResource("1_f3sb7")]
-position = Vector2(3, 163)
+position = Vector2(0, 4)

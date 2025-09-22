@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://bo71wx7dpogo5"]
+
+[ext_resource type="Texture2D" uid="uid://cuemidgkntwwd" path="res://assets/environment/trees.png" id="1_3fcko"]
+[ext_resource type="Shader" uid="uid://dlm2xnrq6hsy4" path="res://assets/shaders/colorize.gdshader" id="1_863nt"]
+[ext_resource type="Texture2D" uid="uid://bld06pic5um0r" path="res://assets/environment/tree_leaves.png" id="2_863nt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dktux"]
+shader = ExtResource("1_863nt")
+shader_parameter/grayscaleImage = ExtResource("1_3fcko")
+shader_parameter/lowColor = Color(0, 0, 0, 1)
+shader_parameter/midColor = Color(0.7248222, 0.42861414, 0.04038382, 1)
+shader_parameter/highColor = Color(0.26495627, 0.1432524, 0.004280099, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_863nt"]
+atlas = ExtResource("1_3fcko")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ke6tb"]
+shader = ExtResource("1_863nt")
+shader_parameter/grayscaleImage = ExtResource("2_863nt")
+shader_parameter/lowColor = Color(0, 0, 0, 1)
+shader_parameter/midColor = Color(0.14728153, 0.40311825, 0.16122615, 1)
+shader_parameter/highColor = Color(0.3362924, 0.5350371, 0.3444179, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke6tb"]
+atlas = ExtResource("2_863nt")
+region = Rect2(32, 0, 32, 48)
+
+[node name="SmallTree" type="Node2D"]
+
+[node name="TreeTrunk" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_dktux")
+position = Vector2(0, -32)
+texture = SubResource("AtlasTexture_863nt")
+
+[node name="TreeLeave" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ke6tb")
+position = Vector2(0, -40)
+texture = SubResource("AtlasTexture_ke6tb")

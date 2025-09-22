@@ -20,20 +20,20 @@ func _on_next_transitions() -> void:
 
 func _on_enter() -> void:
 	if player.player_direction == Vector2.UP:
-		animated_sprite_2d.play("slice_up")
+		animated_sprite_2d.play("mine_up")
 		animated_sprite_2d.flip_h = false
 	elif player.player_direction == Vector2.DOWN:
-		animated_sprite_2d.play("slice_down")
+		animated_sprite_2d.play("mine_down")
 		animated_sprite_2d.flip_h = false
 	elif player.player_direction == Vector2.LEFT:
-		animated_sprite_2d.play("slice_side")
+		animated_sprite_2d.play("mine_side")
 		animated_sprite_2d.flip_h = true
 	elif player.player_direction == Vector2.RIGHT:
 		animated_sprite_2d.flip_h = false
-		animated_sprite_2d.play("slice_side")
+		animated_sprite_2d.play("mine_side")
 		
 	else:
-		animated_sprite_2d.play("slice_down")
+		animated_sprite_2d.play("mine_down")
 	
 
 
