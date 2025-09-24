@@ -1,0 +1,71 @@
+[gd_scene load_steps=13 format=3 uid="uid://cpew0cj0ignpc"]
+
+[ext_resource type="Texture2D" uid="uid://cuemidgkntwwd" path="res://assets/environment/trees.png" id="1_6k7od"]
+[ext_resource type="Script" uid="uid://beusllinin4q5" path="res://scenes/environment/large_tree.gd" id="1_ibnk4"]
+[ext_resource type="Shader" uid="uid://dlm2xnrq6hsy4" path="res://assets/shaders/colorize.gdshader" id="1_y2kmr"]
+[ext_resource type="Texture2D" uid="uid://bld06pic5um0r" path="res://assets/environment/tree_leaves.png" id="2_j0ktu"]
+[ext_resource type="PackedScene" uid="uid://bjdp4vjlwkusq" path="res://scenes/components/hurt_component.tscn" id="4_ul4i8"]
+[ext_resource type="PackedScene" uid="uid://c23ryy5kpj7j6" path="res://scenes/components/damage_component.tscn" id="5_lycut"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ul4i8"]
+shader = ExtResource("1_y2kmr")
+shader_parameter/grayscaleImage = ExtResource("1_6k7od")
+shader_parameter/lowColor = Color(0, 0, 0, 1)
+shader_parameter/midColor = Color(0.7198546, 0.637668, 0.51622915, 1)
+shader_parameter/highColor = Color(0.74401873, 0.5242886, 0.31748426, 1)
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0ktu"]
+atlas = ExtResource("1_6k7od")
+region = Rect2(144, 128, 80, 128)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lycut"]
+shader = ExtResource("1_y2kmr")
+shader_parameter/grayscaleImage = ExtResource("2_j0ktu")
+shader_parameter/lowColor = Color(0, 0, 0, 1)
+shader_parameter/midColor = Color(1, 0.5725485, 0.42090175, 1)
+shader_parameter/highColor = Color(0.4418628, 0, 0.038604088, 1)
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2kmr"]
+atlas = ExtResource("2_j0ktu")
+region = Rect2(144, 128, 80, 104)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j0ktu"]
+radius = 6.0
+height = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ul4i8"]
+size = Vector2(20, 24)
+
+[node name="LargeTree" type="Node2D"]
+script = ExtResource("1_ibnk4")
+
+[node name="TreeTrunk" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ul4i8")
+position = Vector2(0, -61)
+texture = SubResource("AtlasTexture_j0ktu")
+
+[node name="TreeLeaves" type="Sprite2D" parent="TreeTrunk"]
+material = SubResource("ShaderMaterial_lycut")
+position = Vector2(0, -12)
+texture = SubResource("AtlasTexture_y2kmr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -12)
+shape = SubResource("CapsuleShape2D_j0ktu")
+
+[node name="HurtComponent" parent="." instance=ExtResource("4_ul4i8")]
+tool = 1
+
+[node name="Hurt_Component_CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_ul4i8")
+debug_color = Color(0.14086378, 0.637896, 0.30538398, 0.41960785)
+
+[node name="DamageComponent" parent="." instance=ExtResource("5_lycut")]
+max_damage = 5
