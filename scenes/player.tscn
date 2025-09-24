@@ -1,4 +1,4 @@
-[gd_scene load_steps=262 format=3 uid="uid://cssw8p2xa7w8l"]
+[gd_scene load_steps=263 format=3 uid="uid://cssw8p2xa7w8l"]
 
 [ext_resource type="Texture2D" uid="uid://cr0p8shbto3a" path="res://Pixel Crawler - Free Pack/Entities/Characters/Body_A/Animations/Collect_Base/Collect_Down-Sheet.png" id="1_5tmop"]
 [ext_resource type="Texture2D" uid="uid://cgfuq8cle6dbw" path="res://Pixel Crawler - Free Pack/Entities/Characters/Body_A/Animations/Carry_Walk/Carry_Walk_Down-Sheet.png" id="1_dx0e4"]
@@ -37,6 +37,7 @@
 [ext_resource type="Script" uid="uid://pqti4b67kml4" path="res://scripts/state_machine/node_state_machine.gd" id="32_487ah"]
 [ext_resource type="Script" uid="uid://d0ofxg7qmrcc1" path="res://scripts/state_machine/walk_state.gd" id="33_487ah"]
 [ext_resource type="Script" uid="uid://dxd6jhhw1bnmg" path="res://scripts/state_machine/idle_state.gd" id="33_md1ol"]
+[ext_resource type="Script" uid="uid://c5rw2e7q5m1lc" path="res://scripts/state_machine/running.gd" id="38_fdfoy"]
 [ext_resource type="Script" uid="uid://ddna7n0dmygmt" path="res://scripts/state_machine/chopping_state.gd" id="38_t4otl"]
 [ext_resource type="Script" uid="uid://8rqn8li4hqyo" path="res://scripts/state_machine/tilling_state.gd" id="39_j2b1d"]
 [ext_resource type="Script" uid="uid://slnwgequ1e52" path="res://scripts/state_machine/watering_state.gd" id="40_cs1tg"]
@@ -1431,7 +1432,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_down",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1454,7 +1455,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_side",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1477,7 +1478,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_up",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1740,10 +1741,8 @@ current_tool = 1
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_q13i1")
-animation = &"slice_up"
+animation = &"run_up"
 autoplay = "idle_down"
-frame = 7
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
@@ -1762,6 +1761,11 @@ animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
 [node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("33_487ah")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+
+[node name="Run" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = ExtResource("38_fdfoy")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 

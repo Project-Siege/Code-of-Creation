@@ -1,4 +1,6 @@
 extends Node2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var hurt_component: HurtComponent = $HurtComponent
 @onready var damage_component: DamageComponent = $DamageComponent
@@ -19,11 +21,13 @@ func on_hurt(hit_damage: int) -> void:
 	tree_leave.material.set_shader_parameter("shake_intensity", 0.0)
 
 func on_max_damage_reached() -> void:
-	call_deferred("add_log_scene")
-	
 	print("max damage reached")
 	await get_tree().create_timer(0.32).timeout
+	animation_player.play("bigFall")
+	audio_stream_player_2d.play()
+	await get_tree().create_timer(1.00).timeout
 	queue_free()
+	add_log_scene()
 
 func add_log_scene() -> void:
 	var log_instance = log_scene.instantiate() as Node2D
