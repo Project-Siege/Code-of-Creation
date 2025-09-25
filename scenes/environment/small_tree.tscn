@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bo71wx7dpogo5"]
+[gd_scene load_steps=19 format=3 uid="uid://bo71wx7dpogo5"]
 
 [ext_resource type="Texture2D" uid="uid://cuemidgkntwwd" path="res://assets/environment/trees.png" id="1_3fcko"]
 [ext_resource type="Shader" uid="uid://dlm2xnrq6hsy4" path="res://assets/shaders/colorize.gdshader" id="1_863nt"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bjdp4vjlwkusq" path="res://scenes/components/hurt_component.tscn" id="4_dktux"]
 [ext_resource type="PackedScene" uid="uid://c23ryy5kpj7j6" path="res://scenes/components/damage_component.tscn" id="5_53wdc"]
 [ext_resource type="AudioStream" uid="uid://q6574p2u7q5t" path="res://assets/chop-tree-fall.ogg" id="8_blqr6"]
+[ext_resource type="PackedScene" uid="uid://c5vk6agsq20uk" path="res://scenes/particles/wood_chips_cpu_particles_2d.tscn" id="8_eihn4"]
 [ext_resource type="AudioStream" uid="uid://bug0btsyk1bs5" path="res://assets/chopping-a-tree-with-hatchet-in-a-forest-close-up-68478 (mp3cut.net).mp3" id="9_m0om6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ke6tb"]
@@ -15,7 +16,7 @@ resource_local_to_scene = true
 shader = ExtResource("1_863nt")
 shader_parameter/grayscaleImage = ExtResource("2_863nt")
 shader_parameter/lowColor = Color(0, 0, 0, 1)
-shader_parameter/midColor = Color(0.95, 0.6441, 0.2945, 1)
+shader_parameter/midColor = Color(0.7785549, 0.6346225, 1, 1)
 shader_parameter/highColor = Color(0.94, 0.54175335, 0.1692, 1)
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 20.0
@@ -94,6 +95,9 @@ shape = SubResource("CapsuleShape2D_ke6tb")
 
 [node name="HurtComponent" parent="." instance=ExtResource("4_dktux")]
 tool = 1
+
+[node name="WoodChips_CPUParticles2D" parent="HurtComponent" instance=ExtResource("8_eihn4")]
+position = Vector2(0, -7)
 
 [node name="Hurt_Component_CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
 position = Vector2(0, -12.5)

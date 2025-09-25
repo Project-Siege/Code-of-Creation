@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://rv4ajj4avlhg"]
+[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://rv4ajj4avlhg"]
 
 [ext_resource type="Texture2D" uid="uid://dxqrbmkuoj5tj" path="res://Pixel Crawler - Free Pack/Environment/Tilesets/TilledDirt.png" id="1_4e1uv"]
 [ext_resource type="Texture2D" uid="uid://ckmya5bav6o2e" path="res://Pixel Crawler - Free Pack/Environment/Tilesets/Water_tiles.png" id="1_5hgct"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bo71wx7dpogo5" path="res://scenes/environment/small_tree.tscn" id="5_sf7es"]
 [ext_resource type="PackedScene" uid="uid://hqtoi23jx7mt" path="res://scenes/environment/mid_tree.tscn" id="6_k3fnn"]
 [ext_resource type="PackedScene" uid="uid://cpew0cj0ignpc" path="res://scenes/environment/large_tree.tscn" id="7_m33cx"]
+[ext_resource type="Texture2D" uid="uid://kvh0xghk2of8" path="res://assets/environment/Wooden_House_Walls_Tilset.png" id="9_u7ypn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_odgn4"]
 texture = ExtResource("1_4e1uv")
@@ -562,6 +563,41 @@ texture = ExtResource("2_2pdka")
 0:3/0/terrain = 0
 0:3/0/terrains_peering_bit/right_side = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0mvry"]
+texture = ExtResource("9_u7ypn")
+2:4/size_in_atlas = Vector2i(2, 2)
+2:4/0 = 0
+4:4/size_in_atlas = Vector2i(1, 2)
+4:4/0 = 0
+1:4/size_in_atlas = Vector2i(1, 2)
+1:4/0 = 0
+2:2/size_in_atlas = Vector2i(2, 2)
+2:2/0 = 0
+1:2/size_in_atlas = Vector2i(1, 2)
+1:2/0 = 0
+1:0/size_in_atlas = Vector2i(1, 2)
+1:0/0 = 0
+4:2/size_in_atlas = Vector2i(1, 2)
+4:2/0 = 0
+4:0/size_in_atlas = Vector2i(1, 2)
+4:0/0 = 0
+2:0/size_in_atlas = Vector2i(2, 2)
+2:0/0 = 0
+7:2/size_in_atlas = Vector2i(2, 2)
+7:2/0 = 0
+7:0/size_in_atlas = Vector2i(2, 2)
+7:0/0 = 0
+6:0/size_in_atlas = Vector2i(1, 2)
+6:0/0 = 0
+6:2/size_in_atlas = Vector2i(1, 2)
+6:2/0 = 0
+9:2/size_in_atlas = Vector2i(1, 2)
+9:2/0 = 0
+9:0/size_in_atlas = Vector2i(1, 2)
+9:0/0 = 0
+6:4/size_in_atlas = Vector2i(2, 2)
+6:4/0 = 0
+
 [resource]
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Grass Terrain"
@@ -574,3 +610,4 @@ sources/0 = SubResource("TileSetAtlasSource_odgn4")
 sources/2 = SubResource("TileSetAtlasSource_pdgio")
 sources/3 = SubResource("TileSetAtlasSource_sf7es")
 sources/4 = SubResource("TileSetScenesCollectionSource_k3fnn")
+sources/6 = SubResource("TileSetAtlasSource_0mvry")

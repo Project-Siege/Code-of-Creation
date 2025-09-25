@@ -1,4 +1,4 @@
-[gd_scene load_steps=263 format=3 uid="uid://cssw8p2xa7w8l"]
+[gd_scene load_steps=264 format=3 uid="uid://cssw8p2xa7w8l"]
 
 [ext_resource type="Texture2D" uid="uid://cr0p8shbto3a" path="res://Pixel Crawler - Free Pack/Entities/Characters/Body_A/Animations/Collect_Base/Collect_Down-Sheet.png" id="1_5tmop"]
 [ext_resource type="Texture2D" uid="uid://cgfuq8cle6dbw" path="res://Pixel Crawler - Free Pack/Entities/Characters/Body_A/Animations/Carry_Walk/Carry_Walk_Down-Sheet.png" id="1_dx0e4"]
@@ -43,6 +43,7 @@
 [ext_resource type="Script" uid="uid://slnwgequ1e52" path="res://scripts/state_machine/watering_state.gd" id="40_cs1tg"]
 [ext_resource type="PackedScene" uid="uid://bq6s11au4b0ev" path="res://scenes/components/hit_component.tscn" id="41_2dvfe"]
 [ext_resource type="AudioStream" uid="uid://bug0btsyk1bs5" path="res://assets/chopping-a-tree-with-hatchet-in-a-forest-close-up-68478 (mp3cut.net).mp3" id="42_giy8y"]
+[ext_resource type="AudioStream" uid="uid://otehq1je6cbu" path="res://assets/funny-swish-101878.mp3" id="44_hhpqf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_856xa"]
 atlas = ExtResource("1_qtqh7")
@@ -1739,7 +1740,7 @@ current_tool = 1
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_q13i1")
-animation = &"slice_down"
+animation = &"walk_up"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1793,3 +1794,6 @@ debug_color = Color(0.76374406, 0.37447003, 0.651391, 0.41960785)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("42_giy8y")
 pitch_scale = 0.4
+
+[node name="swish" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("44_hhpqf")

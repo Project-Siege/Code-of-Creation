@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://coj73us1d0qwg"]
+
+[ext_resource type="Texture2D" uid="uid://oe17tayudfyo" path="res://Pixel Crawler - Free Pack/Environment/Structures/Stations/Furnace/Furnace.png" id="1_a2xpu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg4he"]
+atlas = ExtResource("1_a2xpu")
+region = Rect2(0, 24, 32, 40)
+
+[node name="Furnace" type="Sprite2D"]
+texture = SubResource("AtlasTexture_lg4he")

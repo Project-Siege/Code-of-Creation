@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn1uafs2jysem"
-path="res://.godot/imported/Grass.png-e86592789f3c6b244be9f11b9a4a54ec.ctex"
+uid="uid://kvh0xghk2of8"
+path="res://.godot/imported/Wooden_House_Walls_Tilset.png-7d4731a3c917f513c9ff63e42b4d993d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pixel Crawler - Free Pack/Environment/Tilesets/Grass.png"
-dest_files=["res://.godot/imported/Grass.png-e86592789f3c6b244be9f11b9a4a54ec.ctex"]
+source_file="res://assets/environment/Wooden_House_Walls_Tilset.png"
+dest_files=["res://.godot/imported/Wooden_House_Walls_Tilset.png-7d4731a3c917f513c9ff63e42b4d993d.ctex"]
 
 [params]
 

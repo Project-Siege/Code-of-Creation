@@ -4,6 +4,7 @@ extends NodeState
 @export var animated_sprite_2d: AnimatedSprite2D
 @export var hit_component_collision_shape: CollisionShape2D
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $"../../AudioStreamPlayer2D"
+@onready var swish: AudioStreamPlayer2D = $"../../swish"
 
 
 func _ready() -> void:
@@ -27,17 +28,20 @@ func _on_enter() -> void:
 	if player.player_direction == Vector2.UP:
 		animated_sprite_2d.play("slice_up")
 		animated_sprite_2d.flip_h = false
+		swish.play()
 		hit_component_collision_shape.position = Vector2(0, -36)
 		
 
 	elif player.player_direction == Vector2.DOWN:
 		animated_sprite_2d.play("slice_down")
 		animated_sprite_2d.flip_h = false
+		swish.play()
 		hit_component_collision_shape.position = Vector2(0, 7)
 
 	elif player.player_direction == Vector2.LEFT:
 		animated_sprite_2d.play("slice_side")
 		animated_sprite_2d.flip_h = true
+		swish.play()
 		hit_component_collision_shape.position = Vector2(-23, -14)
 
 	elif player.player_direction == Vector2.RIGHT:
@@ -45,6 +49,7 @@ func _on_enter() -> void:
 
 		animated_sprite_2d.flip_h = false
 		animated_sprite_2d.play("slice_side")
+		swish.play()
 		hit_component_collision_shape.position = Vector2(23, -14)
 		
 	else:
