@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7ahtxx8fy4fi"]
+
+[ext_resource type="Material" uid="uid://k8ckixss4p0x" path="res://scenes/environment/large_tree_mat.tres" id="1_twb8u"]
+[ext_resource type="Texture2D" uid="uid://cuemidgkntwwd" path="res://assets/environment/trees.png" id="2_0svnk"]
+[ext_resource type="PackedScene" uid="uid://dwpolgly3knpm" path="res://scenes/components/collectable_component.tscn" id="3_obnrk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjwpb"]
+atlas = ExtResource("2_0svnk")
+region = Rect2(320, 200, 64, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2eknw"]
+radius = 5.0
+
+[node name="LargeLogRoot" type="Node2D"]
+
+[node name="LargeLog" type="Sprite2D" parent="."]
+material = ExtResource("1_twb8u")
+texture = SubResource("AtlasTexture_jjwpb")
+
+[node name="CollectableComponent" parent="LargeLog" instance=ExtResource("3_obnrk")]
+collectable_name = "log"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LargeLog/CollectableComponent"]
+shape = SubResource("CircleShape2D_2eknw")
+debug_color = Color(0.8127272, 0.410185, 0, 0.41960785)

@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b7p4c6dbm2yv7"]
+
+[ext_resource type="Shader" uid="uid://dlm2xnrq6hsy4" path="res://assets/shaders/colorize.gdshader" id="1_mbbv3"]
+[ext_resource type="Texture2D" uid="uid://cuemidgkntwwd" path="res://assets/environment/trees.png" id="2_aaddd"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_mbbv3")
+shader_parameter/grayscaleImage = ExtResource("2_aaddd")
+shader_parameter/lowColor = Color(0, 0, 0, 1)
+shader_parameter/midColor = Color(1, 0.7305, 0.51, 1)
+shader_parameter/highColor = Color(0.83, 0.61586, 0.47309998, 1)
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0

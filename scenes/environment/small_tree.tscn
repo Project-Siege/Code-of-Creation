@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bo71wx7dpogo5"]
+[gd_scene load_steps=18 format=3 uid="uid://bo71wx7dpogo5"]
 
 [ext_resource type="Texture2D" uid="uid://cuemidgkntwwd" path="res://assets/environment/trees.png" id="1_3fcko"]
 [ext_resource type="Shader" uid="uid://dlm2xnrq6hsy4" path="res://assets/shaders/colorize.gdshader" id="1_863nt"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bjdp4vjlwkusq" path="res://scenes/components/hurt_component.tscn" id="4_dktux"]
 [ext_resource type="PackedScene" uid="uid://c23ryy5kpj7j6" path="res://scenes/components/damage_component.tscn" id="5_53wdc"]
 [ext_resource type="AudioStream" uid="uid://q6574p2u7q5t" path="res://assets/chop-tree-fall.ogg" id="8_blqr6"]
+[ext_resource type="AudioStream" uid="uid://bug0btsyk1bs5" path="res://assets/chopping-a-tree-with-hatchet-in-a-forest-close-up-68478 (mp3cut.net).mp3" id="9_m0om6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ke6tb"]
 resource_local_to_scene = true
@@ -34,21 +35,6 @@ height = 6.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dktux"]
 size = Vector2(20, 25)
 
-[sub_resource type="Animation" id="Animation_2o57e"]
-resource_name = "sTreeFall"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -1.5707964]
-}
-
 [sub_resource type="Animation" id="Animation_blqr6"]
 length = 0.001
 tracks/0/type = "value"
@@ -64,13 +50,28 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_2o57e"]
+resource_name = "sTreeFall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.5707964]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m0om6"]
 _data = {
 &"RESET": SubResource("Animation_blqr6"),
 &"sTreeFall": SubResource("Animation_2o57e")
 }
 
-[node name="SmallTree" type="Node2D"]
+[node name="SmallTree" type="Node2D" groups=["Trees"]]
 script = ExtResource("1_g4upf")
 
 [node name="TreeLeave" type="Sprite2D" parent="."]
@@ -84,6 +85,8 @@ position = Vector2(0, -29)
 texture = SubResource("AtlasTexture_863nt")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, -7)
@@ -96,6 +99,9 @@ tool = 1
 position = Vector2(0, -12.5)
 shape = SubResource("RectangleShape2D_dktux")
 debug_color = Color(0, 0.63671887, 0.40532205, 0.41960785)
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="HurtComponent"]
+stream = ExtResource("9_m0om6")
 
 [node name="DamageComponent" parent="." instance=ExtResource("5_53wdc")]
 max_damage = 3

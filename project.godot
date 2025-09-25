@@ -23,6 +23,10 @@ window/size/window_height_override=730
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
+[global_group]
+
+Trees=""
+
 [input]
 
 move_up={

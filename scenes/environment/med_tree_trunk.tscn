@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn4jdpteb7t6h"]
+
+[ext_resource type="Texture2D" uid="uid://cuemidgkntwwd" path="res://assets/environment/trees.png" id="1_6obrm"]
+[ext_resource type="Material" uid="uid://b7p4c6dbm2yv7" path="res://scenes/environment/mid_tree_trunk_mat.tres" id="1_h00e2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h00e2"]
+atlas = ExtResource("1_6obrm")
+region = Rect2(144, 104, 16, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h00e2"]
+radius = 4.031129
+
+[node name="MedTreeTrunk" type="Sprite2D"]
+material = ExtResource("1_h00e2")
+texture = SubResource("AtlasTexture_h00e2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_h00e2")
