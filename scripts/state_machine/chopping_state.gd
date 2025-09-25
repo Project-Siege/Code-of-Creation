@@ -45,8 +45,6 @@ func _on_enter() -> void:
 		hit_component_collision_shape.position = Vector2(-23, -14)
 
 	elif player.player_direction == Vector2.RIGHT:
-		
-
 		animated_sprite_2d.flip_h = false
 		animated_sprite_2d.play("slice_side")
 		swish.play()

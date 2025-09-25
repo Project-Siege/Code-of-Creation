@@ -77,7 +77,7 @@ script = ExtResource("1_22kbv")
 
 [node name="TreeTrunk" type="Sprite2D" parent="."]
 material = ExtResource("2_upk4i")
-position = Vector2(0, -45)
+position = Vector2(0, -39)
 texture = SubResource("AtlasTexture_xtxxg")
 
 [node name="TreeLeaves" type="Sprite2D" parent="TreeTrunk"]
@@ -93,8 +93,10 @@ collision_mask = 18
 position = Vector2(0, -16)
 shape = SubResource("CapsuleShape2D_a0w5d")
 
-[node name="HurtComponent" parent="." instance=ExtResource("4_b4q1t")]
+[node name="HurtComponent" parent="." node_paths=PackedStringArray("audio_stream_player_2d_2", "wood_chips") instance=ExtResource("4_b4q1t")]
 tool = 1
+audio_stream_player_2d_2 = NodePath("AudioStreamPlayer2D2")
+wood_chips = NodePath("WoodChips_CPUParticles2D")
 
 [node name="WoodChips_CPUParticles2D" parent="HurtComponent" instance=ExtResource("7_62k5u")]
 position = Vector2(0, -16)

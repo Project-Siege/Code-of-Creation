@@ -93,8 +93,10 @@ collision_mask = 18
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_ke6tb")
 
-[node name="HurtComponent" parent="." instance=ExtResource("4_dktux")]
+[node name="HurtComponent" parent="." node_paths=PackedStringArray("audio_stream_player_2d_2", "wood_chips") instance=ExtResource("4_dktux")]
 tool = 1
+audio_stream_player_2d_2 = NodePath("AudioStreamPlayer2D2")
+wood_chips = NodePath("WoodChips_CPUParticles2D")
 
 [node name="WoodChips_CPUParticles2D" parent="HurtComponent" instance=ExtResource("8_eihn4")]
 position = Vector2(0, -7)

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc0ham1hk58kq"]
+
+[ext_resource type="Texture2D" uid="uid://k0pw04v12mke" path="res://Pixel Crawler - Free Pack/Environment/Structures/Stations/Workbench/Workbench.png" id="1_4qktc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sk6w"]
+atlas = ExtResource("1_4qktc")
+region = Rect2(0, 264, 32, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qktc"]
+size = Vector2(28, 4)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_6sk6w")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_4qktc")

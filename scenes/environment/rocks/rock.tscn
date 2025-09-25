@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://djlgcun2ymdnw"]
+
+[ext_resource type="Texture2D" uid="uid://clivxx4ue46ux" path="res://Pixel Crawler - Free Pack/Environment/Props/Static/Rocks.png" id="1_pylds"]
+[ext_resource type="PackedScene" uid="uid://bjdp4vjlwkusq" path="res://scenes/components/hurt_component.tscn" id="2_8w0n3"]
+[ext_resource type="Script" uid="uid://cuo2ttsfy64i4" path="res://scenes/environment/rock.gd" id="2_elvof"]
+[ext_resource type="PackedScene" uid="uid://c23ryy5kpj7j6" path="res://scenes/components/damage_component.tscn" id="3_5vhqh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8w0n3"]
+atlas = ExtResource("1_pylds")
+region = Rect2(176, 17, 16, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pylds"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8w0n3"]
+radius = 8.0
+
+[node name="Rock" type="Sprite2D"]
+texture = SubResource("AtlasTexture_8w0n3")
+script = ExtResource("2_elvof")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_pylds")
+
+[node name="HurtComponent" parent="." node_paths=PackedStringArray("rock") instance=ExtResource("2_8w0n3")]
+tool = 1
+rock = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+shape = SubResource("CircleShape2D_8w0n3")
+debug_color = Color(0.77819383, 0.36032847, 0.65182966, 0.41960785)
+
+[node name="DamageComponent" parent="." instance=ExtResource("3_5vhqh")]
+max_damage = 5

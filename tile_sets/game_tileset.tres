@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://rv4ajj4avlhg"]
+[gd_resource type="TileSet" load_steps=18 format=3 uid="uid://rv4ajj4avlhg"]
 
 [ext_resource type="Texture2D" uid="uid://dxqrbmkuoj5tj" path="res://Pixel Crawler - Free Pack/Environment/Tilesets/TilledDirt.png" id="1_4e1uv"]
 [ext_resource type="Texture2D" uid="uid://ckmya5bav6o2e" path="res://Pixel Crawler - Free Pack/Environment/Tilesets/Water_tiles.png" id="1_5hgct"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bo71wx7dpogo5" path="res://scenes/environment/small_tree.tscn" id="5_sf7es"]
 [ext_resource type="PackedScene" uid="uid://hqtoi23jx7mt" path="res://scenes/environment/mid_tree.tscn" id="6_k3fnn"]
 [ext_resource type="PackedScene" uid="uid://cpew0cj0ignpc" path="res://scenes/environment/large_tree.tscn" id="7_m33cx"]
+[ext_resource type="PackedScene" uid="uid://djlgcun2ymdnw" path="res://scenes/environment/rocks/rock.tscn" id="8_0mvry"]
 [ext_resource type="Texture2D" uid="uid://kvh0xghk2of8" path="res://assets/environment/Wooden_House_Walls_Tilset.png" id="9_u7ypn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_odgn4"]
@@ -347,6 +348,7 @@ texture = ExtResource("4_pdgio")
 scenes/1/scene = ExtResource("5_sf7es")
 scenes/2/scene = ExtResource("6_k3fnn")
 scenes/3/scene = ExtResource("7_m33cx")
+scenes/4/scene = ExtResource("8_0mvry")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4e1uv"]
 texture = ExtResource("2_2pdka")

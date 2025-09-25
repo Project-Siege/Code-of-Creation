@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3l1v5684dvmk"]
+
+[ext_resource type="Shader" uid="uid://dlm2xnrq6hsy4" path="res://assets/shaders/colorize.gdshader" id="1_fh76r"]
+[ext_resource type="Texture2D" uid="uid://cuemidgkntwwd" path="res://assets/environment/trees.png" id="2_grsjw"]
+[ext_resource type="PackedScene" uid="uid://dwpolgly3knpm" path="res://scenes/components/collectable_component.tscn" id="3_smisl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_grsjw"]
+shader = ExtResource("1_fh76r")
+shader_parameter/grayscaleImage = ExtResource("2_grsjw")
+shader_parameter/lowColor = Color(0, 0, 0, 1)
+shader_parameter/midColor = Color(0.9999998, 0.70579207, 0.3879172, 1)
+shader_parameter/highColor = Color(1, 0.6, 0, 1)
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjwpb"]
+atlas = ExtResource("2_grsjw")
+region = Rect2(320, 176, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2eknw"]
+radius = 5.0
+
+[node name="LargeLogRoot" type="Node2D"]
+
+[node name="LargeLog" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_grsjw")
+texture = SubResource("AtlasTexture_jjwpb")
+
+[node name="CollectableComponent" parent="LargeLog" instance=ExtResource("3_smisl")]
+collectable_name = "log"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LargeLog/CollectableComponent"]
+visible = false
+shape = SubResource("CircleShape2D_2eknw")
+debug_color = Color(0.8127272, 0.410185, 0, 0.41960785)

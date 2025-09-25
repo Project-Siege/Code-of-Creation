@@ -7,7 +7,7 @@ extends Node2D
 @onready var tree_trunk: Sprite2D = $TreeTrunk
 @onready var tree_leave: Sprite2D = $TreeTrunk/TreeLeaves
 var log_scene = preload("res://scenes/environment/large_log.tscn")
-var trunk_scene = preload("res://scenes/environment/large_tree_trunk.tscn")
+var trunk_scene = preload("res://scenes/environment/O_L_Trunk.tscn")
 var branch_scene = preload("res://scenes/environment/small_log.tscn")
 
 func _ready() -> void:

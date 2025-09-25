@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0uqasmvmk3v6"]
+
+[ext_resource type="Texture2D" uid="uid://bke1b6yolq4sq" path="res://Pixel Crawler - Free Pack/Environment/Structures/Stations/Sawmill/Level_1.png" id="1_ojmu6"]
+
+[node name="Level_1_Sawmill" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ojmu6")

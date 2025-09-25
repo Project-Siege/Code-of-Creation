@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cns8a5jrmtuf6"]
+
+[ext_resource type="Texture2D" uid="uid://clivxx4ue46ux" path="res://Pixel Crawler - Free Pack/Environment/Props/Static/Rocks.png" id="1_l6800"]
+[ext_resource type="PackedScene" uid="uid://dwpolgly3knpm" path="res://scenes/components/collectable_component.tscn" id="2_fhr6h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhr6h"]
+atlas = ExtResource("1_l6800")
+region = Rect2(181, 54, 8, 6)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ugw6"]
+radius = 4.0
+
+[node name="Stone" type="Sprite2D"]
+texture = SubResource("AtlasTexture_fhr6h")
+
+[node name="CollectableComponent" parent="." instance=ExtResource("2_fhr6h")]
+collectable_name = "stone"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_0ugw6")
+debug_color = Color(0.2986068, 0.6236106, 0.23798868, 0.41960785)
