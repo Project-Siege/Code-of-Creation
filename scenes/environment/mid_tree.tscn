@@ -86,6 +86,7 @@ position = Vector2(0, -12)
 texture = SubResource("AtlasTexture_b4q1t")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 8)
 collision_layer = 16
 collision_mask = 18
 
@@ -99,7 +100,7 @@ audio_stream_player_2d_2 = NodePath("AudioStreamPlayer2D2")
 wood_chips = NodePath("WoodChips_CPUParticles2D")
 
 [node name="WoodChips_CPUParticles2D" parent="HurtComponent" instance=ExtResource("7_62k5u")]
-position = Vector2(0, -16)
+position = Vector2(0, -8)
 
 [node name="Hurt_Component_CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
 position = Vector2(0, -12)

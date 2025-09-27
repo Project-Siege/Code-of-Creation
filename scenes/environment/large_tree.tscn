@@ -107,7 +107,7 @@ debug_color = Color(0.14086378, 0.637896, 0.30538398, 0.41960785)
 stream = ExtResource("7_06u4r")
 
 [node name="WoodChips_CPUParticles2D" parent="HurtComponent" instance=ExtResource("8_2t56q")]
-position = Vector2(0, -14)
+position = Vector2(0, -6)
 
 [node name="DamageComponent" parent="." instance=ExtResource("5_lycut")]
 max_damage = 5
